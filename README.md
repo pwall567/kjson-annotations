@@ -1,6 +1,6 @@
 # kjson-annotations
 
-[![Build Status](https://travis-ci.com/pwall567/kjson-annotations.svg?branch=main)](https://travis-ci.com/pwall567/kjson-annotations)
+[![Build Status](https://travis-ci.com/pwall567/kjson-annotations.svg?branch=main)](https://app.travis-ci.com/github/pwall567/kjson-annotations)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Kotlin](https://img.shields.io/static/v1?label=Kotlin&message=v1.5.20&color=7f52ff&logo=kotlin&logoColor=7f52ff)](https://github.com/JetBrains/kotlin/releases/tag/v1.5.20)
 [![Maven Central](https://img.shields.io/maven-central/v/io.kjson/kjson-annotations?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.kjson%22%20AND%20a:%kjson-annotations%22)
@@ -24,6 +24,32 @@ data class Person(val name: String, val age: Int)
 ```
 Deserializing the JSON string `{"name":"Fred Jones","age":25,"role":"manager"}` into this class will silently ignore the
 `role` property.
+
+### `@JSONDiscriminator`
+
+This annotation supplies a "discriminator" property name to be used when serializing and deserializing sealed classes.
+An additional property is added on serialization, and expected on deserialization, identifying the specific sub-class.
+
+This annotation is applied to the base sealed class, and if it is not used, the `sealedClassDiscriminator` property of
+the `JSONConfig` will be used, with the default value being "`class`".
+
+Example:
+```kotlin
+@JSONDiscriminator("type")
+sealed class Party
+```
+Classes derived from `Party` will have an extra property named `type` indicating the specific sub-class.
+
+### `@JSONIdentifier`
+
+This annotation supplies the value to be used in the discriminator property to determine the sub-class.
+
+Example:
+```kotlin
+@JSONIdentifier("PERSON")
+data class Person(val firstName: String, val lastName: String) : Party()
+```
+`Person` objects will have the discriminator property set to "`PERSON`" to indicate the sub-class.
 
 ### `@JSONIgnore`
 
@@ -89,25 +115,25 @@ The `kjson` library can be configured to use these annotations from other librar
 
 ## Dependency Specification
 
-The latest version of the library is 1.0, and it may be obtained from the Maven Central repository.
+The latest version of the library is 1.1, and it may be obtained from the Maven Central repository.
 
 ### Maven
 ```xml
     <dependency>
       <groupId>io.kjson</groupId>
       <artifactId>kjson-annotations</artifactId>
-      <version>1.0</version>
+      <version>1.1</version>
     </dependency>
 ```
 ### Gradle
 ```groovy
-    implementation "io.kjson:kjson-annotations:1.0"
+    implementation "io.kjson:kjson-annotations:1.1"
 ```
 ### Gradle (kts)
 ```kotlin
-    implementation("io.kjson:kjson-annotations:1.0")
+    implementation("io.kjson:kjson-annotations:1.1")
 ```
 
 Peter Wall
 
-2021-08-22
+2021-08-25
