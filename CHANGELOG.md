@@ -2,6 +2,10 @@
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [1.4] - 2024-10-30
+### Changed
+- `JSONIgnore`, `JSONIncludeIfNull`, `JSONName`: added `FUNCTION` target to allow use on Java getter, setter _etc._
+
 ## [1.3] - 2024-07-11
 ### Added
 - `build.yml`, `deploy.yml`: converted project to GitHub Actions

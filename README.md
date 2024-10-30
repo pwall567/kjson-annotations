@@ -115,25 +115,25 @@ The `kjson` library can be configured to use these annotations from other librar
 
 ## Dependency Specification
 
-The latest version of the library is 1.3, and it may be obtained from the Maven Central repository.
+The latest version of the library is 1.4, and it may be obtained from the Maven Central repository.
 
 ### Maven
 ```xml
     <dependency>
       <groupId>io.kjson</groupId>
       <artifactId>kjson-annotations</artifactId>
-      <version>1.3</version>
+      <version>1.4</version>
     </dependency>
 ```
 ### Gradle
 ```groovy
-    implementation "io.kjson:kjson-annotations:1.3"
+    implementation "io.kjson:kjson-annotations:1.4"
 ```
 ### Gradle (kts)
 ```kotlin
-    implementation("io.kjson:kjson-annotations:1.3")
+    implementation("io.kjson:kjson-annotations:1.4")
 ```
 
 Peter Wall
 
-2024-07-22
+2024-10-30
