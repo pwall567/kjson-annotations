@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>kjson-annotations</artifactId>
-  <version>1.4</version>
+  <version>1.5</version>
   <name>Annotations for Kotlin JSON serialization and deserialization</name>
   <description>Kotlin annotation classes to assist with auto-serialization and deserialization</description>
   <packaging>jar</packaging>
@@ -13,7 +13,7 @@
   <parent>
     <groupId>io.kjson</groupId>
     <artifactId>kjson-maven</artifactId>
-    <version>5.0</version>
+    <version>6.0</version>
   </parent>
 
   <properties>

@@ -2,6 +2,10 @@
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## [1.5] - 2025-02-02
+### Changed
+- `pom.xml`: updated Kotlin version to 2.0.21
+
 ## [1.4] - 2024-10-30
 ### Changed
 - `JSONIgnore`, `JSONIncludeIfNull`, `JSONName`: added `FUNCTION` target to allow use on Java getter, setter _etc._
